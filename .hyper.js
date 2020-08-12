@@ -147,8 +147,6 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    "hyperpower",
-    "hyper-named-css-colors",
     "hyper-quit",
     "hyper-search",
     "hypercwd",

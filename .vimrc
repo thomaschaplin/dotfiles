@@ -5,7 +5,7 @@
 "  \_/ |_|_| |_| |_|_|  \___|
 "============================
 
-"VIM-PLUG AUTO-LOAD
+" VIM-PLUG AUTO-LOAD
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -32,14 +32,11 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|sv
 " If no file specified, auto open NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
 
-" Ctrl n toggles nerdtree
+" Remap
 map <silent> <C-b> :NERDTreeToggle<CR>
-
 map <silent> <C-p> :CtrlPCurWD<CR>
 
 " NERDTree settings
-" let NERDTreeMinimalUI=1
-" let NERDTreeDirArrows = 1
 let NERDTreeIgnore=['node_modules', 'target', 'dist']
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''

@@ -66,6 +66,7 @@ set shiftwidth=2
 syntax on
 set cursorline
 set noerrorbells
+set mouse=a
 
 " Color theme
 colorscheme onedark

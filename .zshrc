@@ -1,23 +1,9 @@
 # NVM SETTINGS
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-# ZSH PLUGINS
-plugins=(zsh-autosuggestions)
-
-# RANDOM EMOJI ON LOAD
-emojis=("⚡️" "🔥" "🍕" "🍔" "👑" "😎" "🙈" "🐵" "🦄" "🌈" "🚀" "🎉" "🔑" "👀" "🚦" "🎲" "❤️")
-RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1))
-PS1="${emojis[$RAND_EMOJI_N]} %1~: "
-
-# ALIAS
-source $HOME/.zsh_aliases
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # AUTOLOAD NVM VERSION
-if [[ -f ~/.nvm/nvm.sh ]]; then
-
-source ~/.nvm/nvm.sh
-
 autoload -U add-zsh-hook
 load-nvmrc() {
   local node_version="$(nvm version)"
@@ -39,7 +25,16 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-fi
+# ZSH PLUGINS
+plugins=(zsh-autosuggestions)
+
+# RANDOM EMOJI ON LOAD
+emojis=("⚡️" "🔥" "🍕" "🍔" "👑" "😎" "🙈" "🐵" "🦄" "🌈" "🚀" "🎉" "🔑" "👀" "🚦" "🎲" "❤️")
+RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1))
+PS1="${emojis[$RAND_EMOJI_N]} %1~: "
+
+# ALIAS
+source $HOME/.zsh_aliases
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

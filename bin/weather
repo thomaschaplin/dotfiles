@@ -6,4 +6,4 @@ region=$(curl -A curl -s ipinfo.io/region) >/dev/null
 if [[ $(echo "$region" | wc -w) == 2 ]]; then
     region=$(echo "$region" | grep -Eo "[A-Z]*" | tr -d "[:space:]")
 fi
-curl -A curl -s $locale.wttr.in/"$city","$region""$1"?u
+curl -A curl -s $locale.wttr.in/"$city","$region""$1"

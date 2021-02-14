@@ -11,6 +11,6 @@ alias bs="npm run build; npm start"
 alias clean="rm -rf node_modules/ dist/; npm install"
 alias ll="ls -lrt"
 alias take-control="sudo chown -R thomaschaplin:staff *"
-alias bat="bat --paging=never"
+alias cat="bat --paging=never"
 alias start="bash /Users/thomaschaplin/GIT/trayio/run-fe-app-locally/start.sh"
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'

@@ -7,10 +7,11 @@ tap "homebrew/services"
 tap "mongodb/brew"
 tap "openresty/brew"
 tap "universal-ctags/universal-ctags"
+tap "adoptopenjdk/openjdk"
 
 # Mac app store
 brew "mas"
-mas install 937984704 # Amphetamine
+# mas install 937984704 # Amphetamine
 
 # Miscellaneous
 brew "gphoto2"
@@ -46,6 +47,10 @@ brew "python"
 brew "python3"
 brew "deno"
 brew "node"
+cask "java"
+cask "adoptopenjdk8"
+cask "adoptopenjdk11"
+cask "adoptopenjdk13"
 
 # Development -> Tools
 brew "git"

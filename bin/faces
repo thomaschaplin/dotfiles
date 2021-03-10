@@ -1,6 +1,6 @@
 #!/bin/bash
-# Lifted from https://github.com/lukaszkorecki/DotFiles/blob/master/bins/faces
-faces=('¯\\_(ツ)_/¯' '┴┬┴┤( ͡° ͜ʖ├┬┴┬' '⊂(▀¯▀⊂)' '( ͡↑ ͜ʖ ͡↑)' '( ͡° ͜ʖ ͡°)' '╰( ⁰ ਊ ⁰ )━☆ﾟ.*･｡ﾟ' 'ಠ_ಠ' 'ಠ_ರೃ' '¯\(°_o)/¯' '(╯°□°）╯︵ ┻━┻')
+
+faces=('¯\_(ツ)_/¯' '¯\_(⊙︿⊙)_/¯' '(╯°□°）╯︵ ┻━┻' '(╯°□°)╯︵( .o.)' 'щ（ﾟДﾟщ）' '(´･_･`)' '(° ͜ʖ͡°)╭∩╮')
 
 if [[ -z $1 ]]; then
   echo 'Choose a face to copy to clipboard'

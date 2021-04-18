@@ -34,7 +34,9 @@ RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1))
 PS1="${emojis[$RAND_EMOJI_N]} %1~: "
 
 # ALIAS
-source $HOME/.zsh_aliases
+if [ -e $HOME/.zsh_aliases ]; then
+    source $HOME/.zsh_aliases
+fi
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

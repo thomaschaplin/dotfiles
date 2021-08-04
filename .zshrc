@@ -40,3 +40,18 @@ fi
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+npmPersonal() {
+    cp ~/personal/.npmrc-personal ~/.npmrc
+    cp ~/personal/.yarnrc-personal.yml ~/.yarnrc.yml
+}
+
+npmTrayioRead() {
+    cp ~/trayio/.npmrc-trayio-read ~/.npmrc
+    cp ~/trayio/.yarnrc-trayio-read.yml ~/.yarnrc.yml
+}
+
+npmTrayioWrite() {
+    cp ~/trayio/.npmrc-trayio-write ~/.npmrc
+    cp ~/trayio/.yarnrc-trayio-write.yml ~/.yarnrc.yml
+}

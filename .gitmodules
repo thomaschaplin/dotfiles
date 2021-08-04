@@ -1,0 +1,6 @@
+[submodule "trayio"]
+	path = trayio
+	url = git@github.com:thomaschaplin/dotfiles-trayio.git
+[submodule "personal"]
+	path = personal
+	url = git@github.com:thomaschaplin/dotfiles-personal.git

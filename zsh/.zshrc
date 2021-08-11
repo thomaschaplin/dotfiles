@@ -1,7 +1,7 @@
 # NVM SETTINGS
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # AUTOLOAD NVM VERSION
 autoload -U add-zsh-hook
@@ -30,36 +30,50 @@ plugins=(zsh-autosuggestions)
 
 # RANDOM EMOJI ON LOAD
 emojis=("⚡️" "🔥" "🍕" "🍔" "👑" "😎" "🙈" "🐵" "🦄" "🌈" "🚀" "🎉" "🔑" "👀" "🚦" "🎲" "❤️")
-RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1))
+RAND_EMOJI_N=$(($RANDOM % ${#emojis[@]} + 1))
 PS1="${emojis[$RAND_EMOJI_N]} %1~: "
 
 # ALIAS
 if [ -e $HOME/.zsh_aliases ]; then
-    source $HOME/.zsh_aliases
+  source $HOME/.zsh_aliases
 fi
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+generateEmptyNpmrcFile() {
+  echo "" >~/.npmrc
+}
+
+generateEmptyYarnrcFile() {
+  echo "" >~/.yarnrc.yml
+}
+
 npmPersonal() {
-    cp ~/.npmrc-personal ~/.npmrc
-    cp ~/.yarnrc-personal.yml ~/.yarnrc.yml
+  generateEmptyNpmrcFile
+  generateEmptyYarnrcFile
+  cp ~/.npmrc-personal ~/.npmrc
+  cp ~/.yarnrc-personal.yml ~/.yarnrc.yml
 }
 
 npmTrayioRead() {
-    cp ~/.npmrc-trayio-read ~/.npmrc
-    cp ~/.yarnrc-trayio-read.yml ~/.yarnrc.yml
+  generateEmptyNpmrcFile
+  generateEmptyYarnrcFile
+  cp ~/.npmrc-trayio-read ~/.npmrc
+  cp ~/.yarnrc-trayio-read.yml ~/.yarnrc.yml
 }
 
 npmTrayioWrite() {
-    cp ~/.npmrc-trayio-write ~/.npmrc
-    cp ~/.yarnrc-trayio-write.yml ~/.yarnrc.yml
+  generateEmptyNpmrcFile
+  generateEmptyYarnrcFile
+  cp ~/.npmrc-trayio-write ~/.npmrc
+  cp ~/.yarnrc-trayio-write.yml ~/.yarnrc.yml
 }
 
 gitClean() {
-  git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -d
+  git branch -vv | grep ': gone]' | grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -d
 }
 
 gitCleanF() {
-  git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -D
+  git branch -vv | grep ': gone]' | grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -D
 }

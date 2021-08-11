@@ -6,10 +6,10 @@ REPO="$(git remote -v | grep fetch | sed 's/origin//' | tr ':' '/' | sed 's/.*gi
 os="$(uname -s)"
 
 case "${os}" in
-    Linux*)     cmd="xdg-open";;
-    Darwin*)    cmd="open";;
-    CYGWIN*)    cmd="start";;
-    *)          cmd="echo Unable to open link"
+Linux*) cmd="xdg-open" ;;
+Darwin*) cmd="open" ;;
+CYGWIN*) cmd="start" ;;
+*) cmd="echo Unable to open link" ;;
 esac
 
 $cmd "$REPO"

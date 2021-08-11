@@ -55,3 +55,11 @@ npmTrayioWrite() {
     cp ~/trayio/.npmrc-trayio-write ~/.npmrc
     cp ~/trayio/.yarnrc-trayio-write.yml ~/.yarnrc.yml
 }
+
+gitClean() {
+  git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -d
+}
+
+gitCleanF() {
+  git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -D
+}

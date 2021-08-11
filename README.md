@@ -83,5 +83,3 @@ update
 
 Apple and brew updates are done all the time, ruby and node are only done if
 those dotfile packages are currently stowed.
-
-test commit

@@ -17,6 +17,22 @@ personal) ;;
   ;;
 esac
 
+case $1 in
+work) ;;
+
+trayio) ;;
+
+personal) ;;
+
+*)
+  echo "Invalid configuration."
+  echo "Valid options:"
+  echo "- $0 clean (cleans all stowed folders)"
+  echo "- $0 install (stows the files)"
+  exit 1
+  ;;
+esac
+
 # First install brew on a mac
 if [ $(uname) = "Darwin" ]; then
   which brew &>/dev/null ||
@@ -42,7 +58,7 @@ else
 fi
 
 # Stow install our apps
-$HOME/dotfiles/install $1
+$HOME/dotfiles/run $1 $2
 
 # Run the update
 if [ "$1" = "mac" ]; then

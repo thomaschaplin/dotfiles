@@ -19,9 +19,24 @@ personal)
     ;;
 esac
 
+case $2 in
+clean | delete | wipe)
+    command=-D
+    wording="Unstowing"
+    ;;
+install)
+    command=-R
+    wording="Stowing"
+    ;;
+*)
+    echo "Invalid group"
+    exit 1
+    ;;
+esac
+
 for folder in $(echo $folders | sed "s/,/ /g"); do
-    echo -n "Stowing $folder...  "
-    output=$(stow -R $folder 2>&1)
+    echo -n "$wording $folder...  "
+    output=$(stow $command $folder 2>&1)
     result=$?
     if [ $result -eq 0 ]; then
         echo "ok"

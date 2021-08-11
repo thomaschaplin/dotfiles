@@ -1,33 +1,85 @@
-# dotfiles
+# Dotfiles
 
-This repository contains my personal dotfiles.
+## Goals
 
-This repo should be used using the `--bare` flag with git.
+* Able to bootstrap a new Mac machine or Linux server easily with no
+  dependencies other than `curl` or `wget`.
+* Not having to keep entire home directory in git (as I used to do)
+* Keeping external dependencies and custom scripts to a minimum
 
-## Setup
+## Usage
 
-This is a loose guide as I've never run the setup before, something to update when I setup a new machine. This is all assumptions - some steps might need updating.
+### Bootstrapping
 
-- Change directory to `$HOME` or `~`
-- Run `mkdir $HOME/dotfiles`
-- Add `alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'` to your `.zshrc` or `.bashrc` file
-- Run `config config --local status.showUntrackedFiles no`
-- Clone the repository - `git clone --bare git@github.com:thomaschaplin/dotfiles.git $HOME/dotfiles`
+Dependencies: a [posix sh][] and [curl][] or [wget][].
 
-If running macOS (or Linux) then you will need to run `brew bundle install` which will use the `Brewfile`
+[posix sh]: (http://pubs.opengroup.org/onlinepubs/009695399/utilities/sh.html)
+[curl]: https://curl.haxx.se/
+[wget]: https://www.gnu.org/software/wget/
 
-## Basic Usage
+On a work machine:
 
+```sh
+curl -o- https://raw.githubusercontent.com/thomaschaplin/dotfiles/master/bootstrap | sh -s work
 ```
-config add /path/to/file
-config commit -m "A short message"
-config push
+
+On a personal machine:
+```sh
+curl -o- https://raw.githubusercontent.com/thomaschaplin/dotfiles/master/bootstrap | sh -s personal
 ```
 
-## Miscellaneous
+If you need to use wget the commands become:
 
-Helpful links:
+```sh
+wget -O - https://raw.githubusercontent.com/thomaschaplin/dotfiles/master/bootstrap | sh work
+wget -O - https://raw.githubusercontent.com/thomaschaplin/dotfiles/master/bootstrap | sh personal
+```
 
-- [Dotfiles Blog](https://www.atlassian.com/git/tutorials/dotfiles)
-- [YouTube Tutorial](https://www.youtube.com/watch?v=tBoLDpTWVOM)
+### Installing
 
+The bootstrap will run an install initially for you, but at that point you can
+easily remove or install packages yourself. There is a script available that
+will setup the base work or personal package lists as well. Please note that if you
+aren't in a terminal with `$STOW_DIR` set to `~/.dotfiles` (which is done by my
+`~/.env` file) then you'll need to provide a `-d ~/.dotfiles` to all stow
+commands.
+
+```sh
+# Install the bash package
+stow bash
+
+# Reinstall the bash package
+# this removes old symlinks as well as places new ones
+stow -R bash
+
+# Remove the bash package
+stow -D bash
+
+# List packages (only in zsh)
+# this is an alias in $DOTFILES/zsh/.zsh/aliases.zsh
+packages
+
+# Install work packages (zsh script)
+$DOTFILES/install work
+
+# Install personal packages (zsh script)
+$DOTFILES/install personal
+```
+
+### Updating
+
+Updating the dot files is as easy as running:
+
+```sh
+pushd $DOTFILES && git pull && popd
+```
+
+Updating all apple / brew / ruby and node packages on your machine can be done
+by running:
+
+```sh
+update
+```
+
+Apple and brew updates are done all the time, ruby and node are only done if
+those dotfile packages are currently stowed.

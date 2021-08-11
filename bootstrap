@@ -1,0 +1,51 @@
+#!/bin/sh
+
+case $1 in
+work) ;;
+
+trayio) ;;
+
+personal) ;;
+
+*)
+  echo "Invalid configuration."
+  echo "Valid options:"
+  echo "- $0 work (sets up a OSX machine)"
+  echo "- $0 trayio (sets up a OSX machine)"
+  echo "- $0 personal (sets up a OSX machine)"
+  exit 1
+  ;;
+esac
+
+# First install brew on a mac
+if [ $(uname) = "Darwin" ]; then
+  which brew &>/dev/null ||
+    /usr/bin/ruby -e \
+      "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+  # Install git and stow
+  brew install git stow
+elif [ -f "/etc/arch-release" ]; then
+  sudo pacman -S --noconfirm git stow
+elif [ $(uname) = "FreeBSD" ]; then
+  sudo pkg install git stow
+fi
+
+# Now that git is available let's check out or update our dotfiles
+if [ -d $HOME/dotfiles ]; then
+  PREV=$(pwd)
+  cd $HOME/dotfiles
+  git pull
+  cd $PREV
+else
+  git clone git@github.com:thomaschaplin/dotfiles.git $HOME/dotfiles
+fi
+
+# Stow install our apps
+$HOME/dotfiles/install $1
+
+# Run the update
+if [ "$1" = "mac" ]; then
+  # TODO: Uncomment ### ~/bin/update
+  echo "TODO"
+fi

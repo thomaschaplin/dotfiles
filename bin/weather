@@ -1,9 +1,0 @@
-locale=$(echo "$LANG" | cut -c1-2) >/dev/null
-country=$(curl -A curl -s ipinfo.io/country) >/dev/null
-city=$(curl -A curl -s ipinfo.io/city) >/dev/null
-region=$(curl -A curl -s ipinfo.io/region) >/dev/null
-
-if [[ $(echo "$region" | wc -w) == 2 ]]; then
-    region=$(echo "$region" | grep -Eo "[A-Z]*" | tr -d "[:space:]")
-fi
-curl -A curl -s $locale.wttr.in/"$city","$region""$1"

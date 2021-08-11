@@ -1,10 +1,33 @@
-#!/usr/bin/env zsh
-# I am using zsh instead of bash.  I was having some troubles using bash with
-# arrays.  Didn't want to investigate, so I just did zsh
-pushd $DOTFILES
-for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
-do
-    stow -D $folder
-    stow $folder
+#!/usr/bin/env bash
+
+export DOTFILES=$HOME/dotfiles
+export WORK_FOLDERS="bin,config,git,homebrew,hyper,trayio,personal,stow,vim,zsh,yarn,npm"
+export PERSONAL_FOLDERS="bin" # add more folders when needed
+
+pushd $DOTFILES >/dev/null
+
+case $1 in
+work | trayio)
+    folders=$WORK_FOLDERS
+    ;;
+personal)
+    folders=$PERSONAL_FOLDERS
+    ;;
+*)
+    echo "Invalid group"
+    exit 1
+    ;;
+esac
+
+for folder in $(echo $folders | sed "s/,/ /g"); do
+    echo -n "Stowing $folder...  "
+    output=$(stow -R $folder 2>&1)
+    result=$?
+    if [ $result -eq 0 ]; then
+        echo "ok"
+    else
+        echo "ERROR: $output"
+    fi
 done
-popd
+
+popd >/dev/null

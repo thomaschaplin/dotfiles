@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [[ $PWD =~ app ]]; then
-    git fetch origin dev && git merge origin/dev
-elif [[ $PWD =~ qa-api-utils ]]; then
-    git fetch origin master && git merge origin/master
-else
-    echo '\''Unknown Directory'\''; fi'
-fi

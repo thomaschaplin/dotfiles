@@ -1,3 +1,11 @@
 #!/bin/bash
 
-git fetch origin $1 && git merge origin/$1
+if [[ -z $1 ]]; then
+    echo 'Error: Missing required argument!'
+    echo 'Usage: update-branch <branch>'
+    exit 1
+else
+    echo "Merging $1 into the current branch..."
+    git fetch origin $1 && git merge origin/$1
+    echo "Done!"
+fi

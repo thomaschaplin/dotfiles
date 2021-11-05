@@ -14,3 +14,5 @@
 	co = checkout
 [fetch]
 	prune = true
+[init]
+	defaultBranch = main

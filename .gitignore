@@ -2,3 +2,6 @@ config/.config/coc
 config/.config/nvim/autoload
 config/.config/configstore/update-notifier-npm.json
 config/.config/iterm2/AppSupport
+config/.config/configstore/update-notifier-gatsby-cli.json
+config/.config/configstore/nodemon.json
+config/.config/gatsby/config.json

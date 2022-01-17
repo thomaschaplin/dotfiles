@@ -16,7 +16,7 @@
 	co = checkout
 	aliases = "config --get-regexp alias"
 	undo = reset --soft HEAD~1
-	pu = push --set-upstream origin HEAD
+	pu = "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
 [fetch]
 	prune = true
 [init]

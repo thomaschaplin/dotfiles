@@ -12,6 +12,7 @@
 	find = "!git ls-files | grep -i"
 	p = pull
 	co = checkout
+	aliases = "config --get-regexp alias"
 [fetch]
 	prune = true
 [init]

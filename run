@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 export DOTFILES=$HOME/dotfiles
-export WORK_FOLDERS="bin,config,git,homebrew,hyper,trayio,personal,stow,vim,zsh"
+export WORK_FOLDERS="bin,config,git,homebrew,hyper,trayio,personal,stow,vim,zsh,.library"
 export PERSONAL_FOLDERS="bin" # add more folders when needed
 
 pushd $DOTFILES >/dev/null

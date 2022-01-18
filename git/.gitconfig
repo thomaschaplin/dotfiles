@@ -8,10 +8,14 @@
 	template = ~/.gitmessage
 [alias]
 	b = branch --sort=-committerdate --format='%(HEAD)%(color:bold blue)%(refname:short)%(color:reset) - %(color:bold green)%(committerdate:relative)%(color:reset) - %(color:yellow)%(subject)%(color:reset)' --color=always
-	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n 10
+	bl = b -a
+	l = ll -n 10
+	ll = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	findf = "!git ls-files | grep -i"
-	findb = "!git branch | grep -i"
-	findbr = "!git branch -a | grep -i"
+	findb = "!git b | grep -i"
+	findbl = "!git bl | grep -i"
+	findc = "!git l | grep -i"
+	findcl = "!git ll | grep -i"
 	p = pull
 	co = checkout
 	aliases = "config --get-regexp alias"

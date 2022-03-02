@@ -2,10 +2,12 @@
 	name = Thomas Chaplin
 	email = thomaschaplin@outlook.com
 	username = thomaschaplin
+	signingkey = DEC787DE57D5080A84D0B921EC297B445165E496
 [core]
 	excludesfile = ~/.gitignore_global
 [commit]
 	template = ~/.gitmessage
+	gpgsign = true
 [alias]
 	b = branch --sort=-committerdate --format='%(HEAD)%(color:bold blue)%(refname:short)%(color:reset) - %(color:bold green)%(committerdate:relative)%(color:reset) - %(color:yellow)%(subject)%(color:reset)' --color=always
 	bl = b -a

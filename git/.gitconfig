@@ -30,3 +30,5 @@
 	defaultBranch = main
 [push]
 	default = upstream
+[status]
+	short = true

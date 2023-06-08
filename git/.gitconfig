@@ -30,5 +30,6 @@
 	defaultBranch = main
 [push]
 	default = upstream
+	autoSetupRemote = true
 [status]
 	short = true

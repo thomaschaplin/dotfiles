@@ -2,7 +2,7 @@
 
 export DOTFILES=$HOME/dotfiles
 export WORK_FOLDERS="bin,trayio,personal,zsh,git"
-export PERSONAL_FOLDERS="bin" # add more folders when needed
+export PERSONAL_FOLDERS="git,bin,zsh,personal,stow" # add more folders when needed
 
 pushd $DOTFILES >/dev/null
 

@@ -2,7 +2,7 @@
 	name = Thomas Chaplin
 	email = thomaschaplin@outlook.com
 	username = thomaschaplin
-	signingkey = DEC787DE57D5080A84D0B921EC297B445165E496
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBHMl1scrzrlysekWUiu3nL78RZQkwKJAUG3diCPdRur
 [core]
 	excludesfile = ~/.gitignore_global
 [commit]
@@ -33,3 +33,7 @@
 	autoSetupRemote = true
 [status]
 	short = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign

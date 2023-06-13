@@ -2,7 +2,7 @@
 	name = Thomas Chaplin
 	email = thomaschaplin@outlook.com
 	username = thomaschaplin
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBHMl1scrzrlysekWUiu3nL78RZQkwKJAUG3diCPdRur
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEoIqvLOwomkhivGKiolhfhvBHVWZ1PXOrqBChReObNu
 [core]
 	excludesfile = ~/.gitignore_global
 [commit]

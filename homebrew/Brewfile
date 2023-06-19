@@ -1,90 +1,44 @@
-tap "github/gh"
-tap "golangci/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
-tap "homebrew/services"
-tap "mongodb/brew"
-tap "openresty/brew"
-tap "universal-ctags/universal-ctags"
-tap "adoptopenjdk/openjdk"
-
-# Mac app store
-brew "mas"
-# mas install 937984704 # Amphetamine
-
-# Miscellaneous
-brew "gphoto2"
-brew "libgphoto2"
-brew "gnupg"
-
-# Editors
-brew "neovim"
-cask "visual-studio-code"
-cask "intellij-idea"
-
-# CLI Tools
-brew "ripgrep"
-brew "jq"
-brew "the_silver_searcher"
-brew "wget"
-brew "aspell"
-brew "fzf"
-brew "fx"
-brew "fd"
-brew "bat"
-
-# Password Management
-cask "1password-cli"
-cask "1password"
-
-# Development -> Languages
-brew "go"
-brew "golangci/tap/golangci-lint"
-brew "ruby"
-brew "scala"
-brew "python"
-brew "python3"
-brew "deno"
-brew "node"
-cask "java"
-cask "adoptopenjdk8"
-cask "adoptopenjdk11"
-cask "adoptopenjdk13"
-
-# Development -> Tools
-brew "git"
+tap "warrensbox/tap"
+brew "awscli"
+brew "fnm"
 brew "gh"
+brew "git"
+brew "jq"
+brew "serverless"
+brew "stow"
+brew "tree"
 brew "yarn"
-brew "allure"
-brew "nginx"
-brew "grafana"
-brew "hugo"
-brew "openresty/brew/openresty"
-brew "nvm"
-cask "docker"
-brew "mongodb/brew/mongodb-community"
-
-# Development -> Testing
-brew "k6"
-cask "postman"
-cask "altair-graphql-client"
-
-# Terminals
+brew "yq"
+brew "warrensbox/tap/tfswitch"
+cask "1password-cli"
+cask "gpg-suite"
 cask "iterm2"
-cask "hyper"
-
-# Browsers
-cask "google-chrome"
-cask "firefox"
-
-# General
-cask "slack"
-cask "loom"
-cask "zoom"
-cask "whatsapp"
-cask "spotify"
 cask "meetingbar"
-
-# VPN
-cask "perimeter81"
+cask "spotify"
+cask "stats"
+cask "visual-studio-code"
+cask "zoom"
+vscode "alexkrechik.cucumberautocomplete"
+vscode "bungcip.better-toml"
+vscode "christian-kohler.npm-intellisense"
+vscode "eamodio.gitlens"
+vscode "foxundermoon.shell-format"
+vscode "GitHub.copilot"
+vscode "GitHub.remotehub"
+vscode "github.vscode-github-actions"
+vscode "GitHub.vscode-pull-request-github"
+vscode "GrapeCity.gc-excelviewer"
+vscode "hashicorp.terraform"
+vscode "mikestead.dotenv"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-vscode.azure-repos"
+vscode "ms-vscode.remote-repositories"
+vscode "PKief.material-icon-theme"
+vscode "redhat.vscode-yaml"
+vscode "ritwickdey.LiveServer"
+vscode "rust-lang.rust-analyzer"
+vscode "serayuzgur.crates"
+vscode "tomoki1207.pdf"
+vscode "yzhang.markdown-all-in-one"
+vscode "zhuangtongfa.material-theme"

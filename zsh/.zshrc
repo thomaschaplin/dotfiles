@@ -1,5 +1,7 @@
 eval "$(fnm env --use-on-cd)"
 
+source <(kubectl completion zsh)
+
 # ZSH PLUGINS
 plugins=(zsh-autosuggestions)
 

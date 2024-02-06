@@ -31,8 +31,6 @@
 [push]
 	default = upstream
 	autoSetupRemote = true
-[status]
-	short = true
 [gpg]
 	format = ssh
 [gpg "ssh"]

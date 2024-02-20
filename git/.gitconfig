@@ -5,6 +5,7 @@
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEoIqvLOwomkhivGKiolhfhvBHVWZ1PXOrqBChReObNu
 [core]
 	excludesfile = ~/.gitignore_global
+	editor = nvim
 [commit]
 	template = ~/.gitmessage
 	gpgsign = true

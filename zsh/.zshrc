@@ -2,6 +2,9 @@ eval "$(fnm env --use-on-cd)"
 
 source <(kubectl completion zsh)
 
+EDITOR=nvim
+VISUAL=nvim
+
 # ZSH PLUGINS
 plugins=(zsh-autosuggestions)
 

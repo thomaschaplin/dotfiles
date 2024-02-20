@@ -1,4 +1,5 @@
 alias cdapp="cd /Users/thomaschaplin/git/trayio/app"
+alias cdhoneycomb="cd /Users/thomaschaplin/git/trayio/honeycomb"
 alias cdgit="cd /Users/thomaschaplin/git"
 alias cdtray="cd /Users/thomaschaplin/git/trayio"
 alias cdthomas="cd /Users/thomaschaplin/git/thomaschaplin"

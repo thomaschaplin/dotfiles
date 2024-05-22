@@ -17,7 +17,21 @@ PS1="${emojis[$RAND_EMOJI_N]} %1~: "
 # https://www.justinjoyce.dev/save-your-shell-history-to-log-files/
 preexec() {if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%d-%m-%Y.%H:%M:%S") $(pwd) $ $3" >> ~/.logs/zsh-history-$(date "+%d-%m-%Y").log; fi}
 
-# ALIAS
+# HISTORY
+HISTSIZE=100000               # https://www.reddit.com/r/zsh/comments/x7uj9e/measuring_the_best_value_of_histsize/
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase                 # If set to `erase' and the same event is found in the history list, that old event gets erased and the current one gets inserted
+setopt appendhistory          # Append history to the history file (no overwriting)
+setopt sharehistory           # Share history across terminals
+setopt hist_expire_dups_first # Expire dupe event first when trimming hist
+setopt hist_ignore_space      # Do not record event starting with a space
+setopt hist_ignore_all_dups   # Delete old event if new is dupe
+setopt hist_save_no_dups      # Do not write dupe event to hist file
+setopt hist_ignore_dups       # Do not record consecutive dupe events
+setopt hist_find_no_dups      # Do not display previously found event
+
+# Load Aliases
 if [ -e $HOME/.zsh_aliases ]; then
   source $HOME/.zsh_aliases
 fi

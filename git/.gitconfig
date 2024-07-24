@@ -2,13 +2,13 @@
 	name = Thomas Chaplin
 	email = thomaschaplin@outlook.com
 	username = thomaschaplin
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEoIqvLOwomkhivGKiolhfhvBHVWZ1PXOrqBChReObNu
+	signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEoIqvLOwomkhivGKiolhfhvBHVWZ1PXOrqBChReObNu
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesFile = ~/.gitignore_global
 	editor = nvim
 [commit]
 	template = ~/.gitmessage
-	gpgsign = true
+	gpgSign = true
 [alias]
 	b = branch --sort=-committerdate --format='%(HEAD)%(color:bold blue)%(refname:short)%(color:reset) - %(color:bold green)%(committerdate:relative)%(color:reset) - %(color:yellow)%(subject)%(color:reset)' --color=always
 	bl = b -a

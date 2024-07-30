@@ -4,7 +4,7 @@ add-zsh-hook precmd reload_history # Set up a hook to reload history before each
 
 EDITOR=nvim # Set the default editor to neovim
 VISUAL=nvim # Set the default visual editor to neovim
-KUBE_EDITOR=$(which nvim)
+export KUBE_EDITOR=$(which nvim)
 
 # ZSH PLUGINS
 plugins=(zsh-autosuggestions) # Load zsh-autosuggestions

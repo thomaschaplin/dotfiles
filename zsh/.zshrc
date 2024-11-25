@@ -58,7 +58,7 @@ preexec() {
     local kube_context="N/A"
     local user="$(whoami)"
     local pwd="$(pwd)"
-    local date="$(date "+%d-%m-%YT%H:%M:%S%")"
+    local date="$(date "+%d-%m-%YT%H:%M:%S")"
     local uptime="$(uptime)"
     local pid="$$"
     local command="$3"

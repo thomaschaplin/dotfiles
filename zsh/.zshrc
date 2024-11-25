@@ -51,7 +51,7 @@ RAND_EMOJI_N=$(($RANDOM % ${#emojis[@]} + 1))
 PS1="${emojis[$RAND_EMOJI_N]} %1~: "
 
 # LOG ALL HISTORY TO FILE
-# https://www.justinjoyce.dev/save-your-shell-history-to-log-files/
+# Original idea came from https://www.justinjoyce.dev/save-your-shell-history-to-log-files/
 preexec() {
   if [ "$(id -u)" -ne 0 ]; then
     local git_branch="N/A"

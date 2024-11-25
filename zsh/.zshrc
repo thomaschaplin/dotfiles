@@ -56,11 +56,9 @@ preexec() {
   if [ "$(id -u)" -ne 0 ]; then
     local git_branch="N/A"
     local kube_context="N/A"
-    local user="$(whoami)"
+    local whoami="$(whoami)"
     local pwd="$(pwd)"
     local date="$(date "+%d-%m-%YT%H:%M:%S")"
-    local uptime="$(uptime)"
-    local pid="$$"
     local command="$3"
 
     if command -v git &>/dev/null; then
@@ -73,7 +71,7 @@ preexec() {
 
     echo "{
       \"date\": \"$date\",
-      \"user\": \"$user\",
+      \"whoami\": \"$whoami\",
       \"pwd\": \"$pwd\",
       \"uptime\": \"$uptime\",
       \"pid\": \"$pid\",

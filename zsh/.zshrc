@@ -52,7 +52,37 @@ PS1="${emojis[$RAND_EMOJI_N]} %1~: "
 
 # LOG ALL HISTORY TO FILE
 # https://www.justinjoyce.dev/save-your-shell-history-to-log-files/
-preexec() {if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%d-%m-%Y.%H:%M:%S") $(pwd) $ $3" >> ~/.logs/zsh-history-$(date "+%d-%m-%Y").log; fi}
+preexec() {
+  if [ "$(id -u)" -ne 0 ]; then
+    local git_branch="N/A"
+    local kube_context="N/A"
+    local user="$(whoami)"
+    local pwd="$(pwd)"
+    local date="$(date "+%d-%m-%YT%H:%M:%S%")"
+    local uptime="$(uptime)"
+    local pid="$$"
+    local command="$3"
+
+    if command -v git &>/dev/null; then
+      git_branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "N/A")"
+    fi
+
+    if command -v kubectl &>/dev/null; then
+      kube_context="$(kubectl config current-context 2>/dev/null || echo "N/A")"
+    fi
+
+    echo "{
+      \"date\": \"$date\",
+      \"user\": \"$user\",
+      \"pwd\": \"$pwd\",
+      \"uptime\": \"$uptime\",
+      \"pid\": \"$pid\",
+      \"git_branch\": \"$git_branch\",
+      \"kube_context\": \"$kube_context\",
+      \"command\": \"$command\"
+    }," >> ~/.logs/zsh-history-$(date "+%d-%m-%Y").log
+  fi
+}
 
 # HISTORY
 HISTSIZE=100000               # https://www.reddit.com/r/zsh/comments/x7uj9e/measuring_the_best_value_of_histsize/

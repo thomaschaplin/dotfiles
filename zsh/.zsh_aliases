@@ -7,3 +7,4 @@ alias ll="ls -lrt"
 alias alogin="aws sso login --profile $1"
 alias aliases="cat ~/.zsh_aliases"
 alias trim="sed 's/ *$//g' | sed 's/^ *//g'"
+alias cdir='cd "${_%/*}"'

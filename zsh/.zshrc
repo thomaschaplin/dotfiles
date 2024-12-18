@@ -1,11 +1,12 @@
 source <(kubectl completion zsh) # Load kubectl completion
 
-add-zsh-hook precmd reload_history # Set up a hook to reload history before each prompt, ensuring up-to-date history across all terminal sessions
+# add-zsh-hook precmd reload_history # Set up a hook to reload history before each prompt, ensuring up-to-date history across all terminal sessions
 
 EDITOR=nvim # Set the default editor to neovim
 VISUAL=nvim # Set the default visual editor to neovim
 export KUBE_EDITOR=$(which nvim)
 
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # ZSH PLUGINS
 plugins=(zsh-autosuggestions) # Load zsh-autosuggestions
 
@@ -73,8 +74,6 @@ preexec() {
       \"date\": \"$date\",
       \"whoami\": \"$whoami\",
       \"pwd\": \"$pwd\",
-      \"uptime\": \"$uptime\",
-      \"pid\": \"$pid\",
       \"git_branch\": \"$git_branch\",
       \"kube_context\": \"$kube_context\",
       \"command\": \"$command\"
@@ -102,7 +101,7 @@ reload_history() { # Function to reload history
     fc -R ~/.zsh_history
 }
 
-add-zsh-hook precmd reload_history # Set up a hook to reload history before each prompt, ensuring up-to-date history across all terminal sessions
+# add-zsh-hook precmd reload_history # Set up a hook to reload history before each prompt, ensuring up-to-date history across all terminal sessions
 
 # ALIASES
 if [ -e $HOME/.zsh_aliases ]; then # Load aliases if the file exists
